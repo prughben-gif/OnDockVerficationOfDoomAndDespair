@@ -1,0 +1,9 @@
+select
+b.location_name,
+a.print_format_code,
+a.created_ts,
+a.label_identifier_txt
+FROM logistics_printing:informix.print_job a
+LEFT JOIN logistics_printing:informix.printer_instance b
+	ON b.printer_instance_id = a.printer_instance_id
+where label_identifier_txt like 
