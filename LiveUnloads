@@ -1,0 +1,7 @@
+SELECT *
+FROM receiving:informix.rcv_label_history
+WHERE
+  DATE(label_create_ts) >= TODAY - 2
+  AND host_door_nbr <> 'RPR'
+  AND create_userid NOT IN ('ACL_FL1 ', 'ACL_FL2 ', 'ACL_FL3 ')
+  AND NVL(CAST(host_door_nbr AS INTEGER), 0) BETWEEN 300 AND 428
